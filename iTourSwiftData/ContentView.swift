@@ -10,40 +10,30 @@ import SwiftData
 
 struct ContentView: View {
     @Environment(\.modelContext) var modelContext
-    @Query var destinations: [Destination]
     
     // to add new destinations
     @State private var path = [Destination]()
     
+    // to track order edited by user in DestinationListingView
+    @State private var sortOrder = SortDescriptor(\Destination.name)
+    
     var body: some View {
         NavigationStack(path: $path) {
-            List {
-                ForEach(destinations) { destination in
-                    NavigationLink(value: destination) {
-                        VStack(alignment: .leading) {
-                            Text(destination.name)
-                                .font(.headline)
-                            
-                            Text(destination.date.formatted(date: .long, time: .shortened))
+            DestinationListingView(sort: sortOrder)
+                .navigationTitle("iTour")
+                .navigationDestination(for: Destination.self, destination: EditDestinationView.init)
+                .toolbar {
+                    Button("Add destination", systemImage: "plus", action: addDestination)
+                    
+                    Menu("Sort", systemImage: "arrow.up.arrow.down") {
+                        Picker("Sort", selection: $sortOrder) {
+                            Text("Name").tag(SortDescriptor(\Destination.name))
+                            Text("Date").tag(SortDescriptor(\Destination.date))
+                            Text("Priority").tag(SortDescriptor(\Destination.priority, order: .reverse))
                         }
+                        .pickerStyle(.inline)
                     }
                 }
-                .onDelete(perform: { indexSet in
-                    deleteDestinations(indexSet)
-                })
-            }
-            .navigationTitle("iTour")
-            .navigationDestination(for: Destination.self, destination: EditDestinationView.init)
-            .toolbar {
-                Button("Add destination", systemImage: "plus", action: addDestination)
-            }
-        }
-    }
-    
-    func deleteDestinations(_ indexSet: IndexSet) {
-        for index in indexSet {
-            let destination = destinations[index]
-            modelContext.delete(destination)
         }
     }
     

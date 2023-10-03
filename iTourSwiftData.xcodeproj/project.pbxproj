@@ -13,6 +13,7 @@
 		34D6E3C12ACB16F700EFAFE3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34D6E3C02ACB16F700EFAFE3 /* Preview Assets.xcassets */; };
 		34D6E3C82ACB175100EFAFE3 /* Destination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D6E3C72ACB175100EFAFE3 /* Destination.swift */; };
 		34D6E3CA2ACB1CDE00EFAFE3 /* EditDestinationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D6E3C92ACB1CDE00EFAFE3 /* EditDestinationView.swift */; };
+		34F2B8932ACC6A1D008BC586 /* DestinationListingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F2B8922ACC6A1D008BC586 /* DestinationListingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		34D6E3C02ACB16F700EFAFE3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		34D6E3C72ACB175100EFAFE3 /* Destination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Destination.swift; sourceTree = "<group>"; };
 		34D6E3C92ACB1CDE00EFAFE3 /* EditDestinationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDestinationView.swift; sourceTree = "<group>"; };
+		34F2B8922ACC6A1D008BC586 /* DestinationListingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationListingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 			children = (
 				34D6E3B92ACB16F400EFAFE3 /* iTourSwiftDataApp.swift */,
 				34D6E3BB2ACB16F400EFAFE3 /* ContentView.swift */,
+				34F2B8922ACC6A1D008BC586 /* DestinationListingView.swift */,
 				34D6E3C92ACB1CDE00EFAFE3 /* EditDestinationView.swift */,
 				34D6E3C72ACB175100EFAFE3 /* Destination.swift */,
 				34D6E3BD2ACB16F700EFAFE3 /* Assets.xcassets */,
@@ -147,6 +150,7 @@
 				34D6E3BA2ACB16F400EFAFE3 /* iTourSwiftDataApp.swift in Sources */,
 				34D6E3C82ACB175100EFAFE3 /* Destination.swift in Sources */,
 				34D6E3CA2ACB1CDE00EFAFE3 /* EditDestinationView.swift in Sources */,
+				34F2B8932ACC6A1D008BC586 /* DestinationListingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
