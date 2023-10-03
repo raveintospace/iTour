@@ -31,9 +31,25 @@ struct DestinationListingView: View {
     }
     
     // custom init to overwrite our @Query macro
-    init(sort: SortDescriptor<Destination>) {
-        _destinations = Query(sort: [sort])
+    init(sort: SortDescriptor<Destination>, searchString: String) {
+        _destinations = Query(filter: #Predicate {
+            if searchString.isEmpty {
+                return true
+            } else {
+                return $0.name.localizedStandardContains(searchString)
+            }
+        }, sort: [sort])
     }
+    
+    // uncomment to show results that match date or priority
+//    init(sort: SortDescriptor<Destination>) {
+//        let now = Date.now
+//        
+//        _destinations = Query(filter: #Predicate {
+//            // $0.priority >= 2
+//            $0.date > now
+//        }, sort: [sort])
+//    }
     
     func deleteDestinations(_ indexSet: IndexSet) {
         for index in indexSet {
@@ -44,5 +60,5 @@ struct DestinationListingView: View {
 }
 
 #Preview {
-    DestinationListingView(sort: SortDescriptor(\Destination.name))
+    DestinationListingView(sort: SortDescriptor(\Destination.name), searchString: "")
 }

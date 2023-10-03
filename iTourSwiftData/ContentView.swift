@@ -17,11 +17,15 @@ struct ContentView: View {
     // to track order edited by user in DestinationListingView
     @State private var sortOrder = SortDescriptor(\Destination.name)
     
+    // text to show objects that match it
+    @State private var searchText = ""
+    
     var body: some View {
         NavigationStack(path: $path) {
-            DestinationListingView(sort: sortOrder)
+            DestinationListingView(sort: sortOrder, searchString: searchText)
                 .navigationTitle("iTour")
                 .navigationDestination(for: Destination.self, destination: EditDestinationView.init)
+                .searchable(text: $searchText)
                 .toolbar {
                     Button("Add destination", systemImage: "plus", action: addDestination)
                     
