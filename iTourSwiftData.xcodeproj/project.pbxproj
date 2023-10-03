@@ -14,6 +14,7 @@
 		34D6E3C82ACB175100EFAFE3 /* Destination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D6E3C72ACB175100EFAFE3 /* Destination.swift */; };
 		34D6E3CA2ACB1CDE00EFAFE3 /* EditDestinationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D6E3C92ACB1CDE00EFAFE3 /* EditDestinationView.swift */; };
 		34F2B8932ACC6A1D008BC586 /* DestinationListingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F2B8922ACC6A1D008BC586 /* DestinationListingView.swift */; };
+		34F2B8952ACC70AA008BC586 /* Landmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F2B8942ACC70AA008BC586 /* Landmark.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		34D6E3C72ACB175100EFAFE3 /* Destination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Destination.swift; sourceTree = "<group>"; };
 		34D6E3C92ACB1CDE00EFAFE3 /* EditDestinationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDestinationView.swift; sourceTree = "<group>"; };
 		34F2B8922ACC6A1D008BC586 /* DestinationListingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationListingView.swift; sourceTree = "<group>"; };
+		34F2B8942ACC70AA008BC586 /* Landmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Landmark.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,10 +60,8 @@
 			isa = PBXGroup;
 			children = (
 				34D6E3B92ACB16F400EFAFE3 /* iTourSwiftDataApp.swift */,
-				34D6E3BB2ACB16F400EFAFE3 /* ContentView.swift */,
-				34F2B8922ACC6A1D008BC586 /* DestinationListingView.swift */,
-				34D6E3C92ACB1CDE00EFAFE3 /* EditDestinationView.swift */,
-				34D6E3C72ACB175100EFAFE3 /* Destination.swift */,
+				34F2B8972ACC70C5008BC586 /* Views */,
+				34F2B8962ACC70B7008BC586 /* Models */,
 				34D6E3BD2ACB16F700EFAFE3 /* Assets.xcassets */,
 				34D6E3BF2ACB16F700EFAFE3 /* Preview Content */,
 			);
@@ -74,6 +74,25 @@
 				34D6E3C02ACB16F700EFAFE3 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		34F2B8962ACC70B7008BC586 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				34D6E3C72ACB175100EFAFE3 /* Destination.swift */,
+				34F2B8942ACC70AA008BC586 /* Landmark.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		34F2B8972ACC70C5008BC586 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				34D6E3BB2ACB16F400EFAFE3 /* ContentView.swift */,
+				34F2B8922ACC6A1D008BC586 /* DestinationListingView.swift */,
+				34D6E3C92ACB1CDE00EFAFE3 /* EditDestinationView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,6 +169,7 @@
 				34D6E3BA2ACB16F400EFAFE3 /* iTourSwiftDataApp.swift in Sources */,
 				34D6E3C82ACB175100EFAFE3 /* Destination.swift in Sources */,
 				34D6E3CA2ACB1CDE00EFAFE3 /* EditDestinationView.swift in Sources */,
+				34F2B8952ACC70AA008BC586 /* Landmark.swift in Sources */,
 				34F2B8932ACC6A1D008BC586 /* DestinationListingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
