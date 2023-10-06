@@ -33,9 +33,12 @@ struct EditDestinationView: View {
                 ForEach(destination.landmarks) { landmark in
                     Text(landmark.name)
                 }
+                .onDelete(perform: { indexSet in
+                    deleteLandmarks(indexSet)
+                })
                 
                 HStack {
-                    TextField("Add a new landmark in \(destination.name)", text: $newLandmarkName)
+                    TextField("Add a new landmark in \(destination.name)", text: $newLandmarkName).autocorrectionDisabled()
                     
                     Button("Add", action: addLandmark)
                 }
@@ -53,6 +56,10 @@ struct EditDestinationView: View {
             destination.landmarks.append(landmark)
             newLandmarkName = ""
         }
+    }
+    
+    func deleteLandmarks(_ indexSet: IndexSet) {
+        destination.landmarks.remove(atOffsets: indexSet)
     }
 }
 
