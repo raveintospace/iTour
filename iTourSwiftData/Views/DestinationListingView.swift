@@ -48,7 +48,7 @@ struct DestinationListingView: View {
             _destinations = Query(filter: #Predicate {
                 // $0.priority >= 2
                 if isFuture && !searchString.isEmpty {
-                    return $0.name.localizedStandardContains(searchString)
+                    return $0.name.localizedStandardContains(searchString) // and $0.date > now
                 } else if isFuture && searchString.isEmpty {
                     return $0.date > now
                 } else {
@@ -66,6 +66,5 @@ struct DestinationListingView: View {
 }
 
 #Preview {
-//    DestinationListingView(sort: SortDescriptor(\Destination.name), searchString: "")
     DestinationListingView(sort: SortDescriptor(\Destination.name), isFuture: true, searchString: "")
 }
