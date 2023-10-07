@@ -24,8 +24,11 @@ class Destination {
     }
     
     func printList() {
-        for (index, name) in landmarks.enumerated() {
-            print("item \(index): \(name)")
+        let sortedArray = landmarks.sorted {
+            $0.name < $1.name
+        }
+        for (index, name) in sortedArray.enumerated() {
+            print("item \(index): \(name.name)")
         }
     }
 }
