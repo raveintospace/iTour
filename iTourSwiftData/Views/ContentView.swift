@@ -20,13 +20,18 @@ struct ContentView: View {
     // text to show objects that match it
     @State private var searchText = ""
     
+    // filter by pending
+    @State private var isFuture = false
+    
     var body: some View {
         NavigationStack(path: $path) {
-            DestinationListingView(sort: sortOrder, searchString: searchText)
+            DestinationListingView(sort: sortOrder, isFuture: isFuture)
                 .navigationTitle("iTour")
                 .navigationDestination(for: Destination.self, destination: EditDestinationView.init)
                 .searchable(text: $searchText)
                 .toolbar {
+                    Toggle("Only pending", isOn: $isFuture)
+                    
                     Button("Add destination", systemImage: "plus", action: addDestination)
                     
                     Menu("Sort", systemImage: "arrow.up.arrow.down") {
