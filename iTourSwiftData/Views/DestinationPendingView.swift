@@ -1,5 +1,5 @@
 //
-//  DestinationListingView.swift
+//  DestinationPendingView.swift
 //  iTourSwiftData
 //  https://youtu.be/mqLDroFreFE?si=sVmqsBanaXz5QMOc
 //  Created by Uri on 3/10/23.
@@ -8,7 +8,7 @@
 import SwiftUI
 import SwiftData
 
-struct DestinationListingView: View {
+struct DestinationPendingView: View {
     @Environment(\.modelContext) var modelContext
     @Query(sort: [SortDescriptor(\Destination.priority, order: .reverse), SortDescriptor(\Destination.name)]) var destinations: [Destination]
     
@@ -65,5 +65,5 @@ struct DestinationListingView: View {
 }
 
 #Preview {
-    DestinationListingView(sort: SortDescriptor(\Destination.name), isFuture: true, searchString: "")
+    DestinationPendingView(sort: SortDescriptor(\Destination.name), isFuture: true, searchString: "")
 }
