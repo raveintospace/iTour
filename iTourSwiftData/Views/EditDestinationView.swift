@@ -30,18 +30,13 @@ struct EditDestinationView: View {
             }
             
             Section("Landmarks") {
-                ForEach(destination.landmarks) { landmark in
-                    Text(landmark.name)
-                }
-                .onDelete(perform: { indexSet in
-                    deleteLandmarks(indexSet)
-                })
+                LandmarksView(destination: destination)
+            }
+            
+            HStack {
+                TextField("Add a new landmark in \(destination.name)", text: $newLandmarkName).autocorrectionDisabled()
                 
-                HStack {
-                    TextField("Add a new landmark in \(destination.name)", text: $newLandmarkName).autocorrectionDisabled()
-                    
-                    Button("Add", action: addLandmark)
-                }
+                Button("Add", action: addLandmark)
             }
         }
         .navigationTitle("Edit Destination")
@@ -55,11 +50,8 @@ struct EditDestinationView: View {
             let landmark = Landmark(name: newLandmarkName)
             destination.landmarks.append(landmark)
             newLandmarkName = ""
+            destination.printList()
         }
-    }
-    
-    func deleteLandmarks(_ indexSet: IndexSet) {
-        destination.landmarks.remove(atOffsets: indexSet)
     }
 }
 

@@ -22,4 +22,10 @@ class Destination {
         self.date = date
         self.priority = priority
     }
+    
+    func printList() {
+        for (index, name) in landmarks.enumerated() {
+            print("item \(index): \(name)")
+        }
+    }
 }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		346D4CAA2AD1AC5B0001922E /* DestinationPendingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346D4CA92AD1AC5B0001922E /* DestinationPendingView.swift */; };
+		346D4CAC2AD1B5BD0001922E /* LandmarksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346D4CAB2AD1B5BD0001922E /* LandmarksView.swift */; };
 		34D6E3BA2ACB16F400EFAFE3 /* iTourSwiftDataApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D6E3B92ACB16F400EFAFE3 /* iTourSwiftDataApp.swift */; };
 		34D6E3BC2ACB16F400EFAFE3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D6E3BB2ACB16F400EFAFE3 /* ContentView.swift */; };
 		34D6E3BE2ACB16F700EFAFE3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34D6E3BD2ACB16F700EFAFE3 /* Assets.xcassets */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		346D4CA92AD1AC5B0001922E /* DestinationPendingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationPendingView.swift; sourceTree = "<group>"; };
+		346D4CAB2AD1B5BD0001922E /* LandmarksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarksView.swift; sourceTree = "<group>"; };
 		34D6E3B62ACB16F400EFAFE3 /* iTourSwiftData.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iTourSwiftData.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34D6E3B92ACB16F400EFAFE3 /* iTourSwiftDataApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTourSwiftDataApp.swift; sourceTree = "<group>"; };
 		34D6E3BB2ACB16F400EFAFE3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 				346D4CA92AD1AC5B0001922E /* DestinationPendingView.swift */,
 				34F2B8922ACC6A1D008BC586 /* DestinationAllListingView.swift */,
 				34D6E3C92ACB1CDE00EFAFE3 /* EditDestinationView.swift */,
+				346D4CAB2AD1B5BD0001922E /* LandmarksView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -174,6 +177,7 @@
 				34D6E3C82ACB175100EFAFE3 /* Destination.swift in Sources */,
 				34D6E3CA2ACB1CDE00EFAFE3 /* EditDestinationView.swift in Sources */,
 				34F2B8952ACC70AA008BC586 /* Landmark.swift in Sources */,
+				346D4CAC2AD1B5BD0001922E /* LandmarksView.swift in Sources */,
 				34F2B8932ACC6A1D008BC586 /* DestinationAllListingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
