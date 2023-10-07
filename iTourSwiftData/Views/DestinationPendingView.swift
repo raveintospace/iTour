@@ -15,12 +15,14 @@ struct DestinationPendingView: View {
     var body: some View {
         List {
             ForEach(destinations) { destination in
-                NavigationLink(value: destination) {
-                    VStack(alignment: .leading) {
-                        Text(destination.name)
-                            .font(.headline)
-                        
-                        Text(destination.date.formatted(date: .long, time: .shortened))
+                if destination.date > Date.now {
+                    NavigationLink(value: destination) {
+                        VStack(alignment: .leading) {
+                            Text(destination.name)
+                                .font(.headline)
+                            
+                            Text(destination.date.formatted(date: .long, time: .shortened))
+                        }
                     }
                 }
             }
@@ -31,29 +33,29 @@ struct DestinationPendingView: View {
     }
     
     // custom init to overwrite our @Query macro
-//    init(sort: SortDescriptor<Destination>, searchString: String) {
-//        _destinations = Query(filter: #Predicate {
-//            if searchString.isEmpty {
-//                return true
-//            } else {
-//                return $0.name.localizedStandardContains(searchString)
-//            }
-//        }, sort: [sort])
-//    }
+    init(sort: SortDescriptor<Destination>, searchString: String) {
+        _destinations = Query(filter: #Predicate {
+            if searchString.isEmpty {
+                return true
+            } else {
+                return $0.name.localizedStandardContains(searchString)
+            }
+        }, sort: [sort])
+    }
     
     // uncomment to show results that match date or priority
-    init(sort: SortDescriptor<Destination>, isFuture: Bool, searchString: String) {
-            let now = Date.now
-            
-            _destinations = Query(filter: #Predicate {
-                // $0.priority >= 2
-                if isFuture {
-                    return $0.date > now
-                } else {
-                   return true
-                }
-            }, sort: [sort])
-    }
+//    init(sort: SortDescriptor<Destination>, isFuture: Bool, searchString: String) {
+//            let now = Date.now
+//            
+//            _destinations = Query(filter: #Predicate {
+//                // $0.priority >= 2
+//                if isFuture {
+//                    return $0.date > now
+//                } else {
+//                   return true
+//                }
+//            }, sort: [sort])
+//    }
     
     
     func deleteDestinations(_ indexSet: IndexSet) {
@@ -65,5 +67,5 @@ struct DestinationPendingView: View {
 }
 
 #Preview {
-    DestinationPendingView(sort: SortDescriptor(\Destination.name), isFuture: true, searchString: "")
+    DestinationPendingView(sort: SortDescriptor(\Destination.name), searchString: "")
 }

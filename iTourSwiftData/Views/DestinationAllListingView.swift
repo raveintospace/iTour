@@ -8,7 +8,7 @@
 import SwiftUI
 import SwiftData
 
-struct DestinationListingView: View {
+struct DestinationAllListingView: View {
     @Environment(\.modelContext) var modelContext
     @Query(sort: [SortDescriptor(\Destination.priority, order: .reverse), SortDescriptor(\Destination.name)]) var destinations: [Destination]
     
@@ -31,28 +31,14 @@ struct DestinationListingView: View {
     }
     
     // custom init to overwrite our @Query macro
-//    init(sort: SortDescriptor<Destination>, searchString: String) {
-//        _destinations = Query(filter: #Predicate {
-//            if searchString.isEmpty {
-//                return true
-//            } else {
-//                return $0.name.localizedStandardContains(searchString)
-//            }
-//        }, sort: [sort])
-//    }
-    
-    // uncomment to show results that match date or priority
-    init(sort: SortDescriptor<Destination>, isFuture: Bool, searchString: String) {
-            let now = Date.now
-            
-            _destinations = Query(filter: #Predicate {
-                // $0.priority >= 2
-                if isFuture {
-                    return $0.date > now
-                } else {
-                   return true
-                }
-            }, sort: [sort])
+    init(sort: SortDescriptor<Destination>, searchString: String) {
+        _destinations = Query(filter: #Predicate {
+            if searchString.isEmpty {
+                return true
+            } else {
+                return $0.name.localizedStandardContains(searchString)
+            }
+        }, sort: [sort])
     }
     
     
@@ -65,5 +51,5 @@ struct DestinationListingView: View {
 }
 
 #Preview {
-    DestinationListingView(sort: SortDescriptor(\Destination.name), isFuture: true, searchString: "")
+    DestinationAllListingView(sort: SortDescriptor(\Destination.name), searchString: "")
 }

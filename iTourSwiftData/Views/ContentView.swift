@@ -26,7 +26,7 @@ struct ContentView: View {
     var body: some View {
         NavigationStack(path: $path) {
             if isFuture {
-                DestinationPendingView(sort: sortOrder, isFuture: isFuture, searchString: searchText)
+                DestinationPendingView(sort: sortOrder, searchString: searchText)
                     .navigationTitle("iTour")
                     .navigationDestination(for: Destination.self, destination: EditDestinationView.init)
                     .searchable(text: $searchText).autocorrectionDisabled()
@@ -46,7 +46,7 @@ struct ContentView: View {
                         }
                     }
             } else {
-                DestinationListingView(sort: sortOrder, isFuture: isFuture, searchString: searchText)
+                DestinationAllListingView(sort: sortOrder, searchString: searchText)
                     .navigationTitle("iTour")
                     .navigationDestination(for: Destination.self, destination: EditDestinationView.init)
                     .searchable(text: $searchText).autocorrectionDisabled()
