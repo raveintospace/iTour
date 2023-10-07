@@ -25,10 +25,10 @@ struct ContentView: View {
     
     var body: some View {
         NavigationStack(path: $path) {
-            DestinationListingView(sort: sortOrder, isFuture: isFuture)
+            DestinationListingView(sort: sortOrder, isFuture: isFuture, searchString: searchText)
                 .navigationTitle("iTour")
                 .navigationDestination(for: Destination.self, destination: EditDestinationView.init)
-                .searchable(text: $searchText)
+                .searchable(text: $searchText).autocorrectionDisabled()
                 .toolbar {
                     Toggle("Only pending", isOn: $isFuture)
                     

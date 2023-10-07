@@ -42,12 +42,14 @@ struct DestinationListingView: View {
 //    }
     
     // uncomment to show results that match date or priority
-    init(sort: SortDescriptor<Destination>, isFuture: Bool) {
+    init(sort: SortDescriptor<Destination>, isFuture: Bool, searchString: String) {
             let now = Date.now
             
             _destinations = Query(filter: #Predicate {
                 // $0.priority >= 2
-                if isFuture {
+                if isFuture && !searchString.isEmpty {
+                    return $0.name.localizedStandardContains(searchString)
+                } else if isFuture && searchString.isEmpty {
                     return $0.date > now
                 } else {
                    return true
@@ -65,5 +67,5 @@ struct DestinationListingView: View {
 
 #Preview {
 //    DestinationListingView(sort: SortDescriptor(\Destination.name), searchString: "")
-    DestinationListingView(sort: SortDescriptor(\Destination.name), isFuture: true)
+    DestinationListingView(sort: SortDescriptor(\Destination.name), isFuture: true, searchString: "")
 }
