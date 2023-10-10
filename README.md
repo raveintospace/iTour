@@ -4,6 +4,7 @@ App to practice SwiftData, allows user to list travel destinations
 <br/>
 <br/>
 This app features: 
+<br/>
 <ul>
 <li>@Query</li>
 <li>@Environment(\.modelContext)</li>
@@ -13,7 +14,6 @@ This app features:
 <li>onDelete</li>
 <li>withAnimation</li>
 </ul>
-<br/>
 <br/>
 This app is based on Paul Hudson's Youtube tutorial: https://youtu.be/FEKCAzPAtpg?si=sNCaqunzqJg5aaQ-
 
