@@ -8,7 +8,7 @@
 import SwiftUI
 import SwiftData
 
-struct DestinationListingView: View {
+struct DestinationAllListingView: View {
     @Environment(\.modelContext) var modelContext
     @Query(sort: [SortDescriptor(\Destination.priority, order: .reverse), SortDescriptor(\Destination.name)]) var destinations: [Destination]
     
@@ -41,15 +41,6 @@ struct DestinationListingView: View {
         }, sort: [sort])
     }
     
-    // uncomment to show results that match date or priority
-//    init(sort: SortDescriptor<Destination>) {
-//        let now = Date.now
-//        
-//        _destinations = Query(filter: #Predicate {
-//            // $0.priority >= 2
-//            $0.date > now
-//        }, sort: [sort])
-//    }
     
     func deleteDestinations(_ indexSet: IndexSet) {
         for index in indexSet {
@@ -60,5 +51,5 @@ struct DestinationListingView: View {
 }
 
 #Preview {
-    DestinationListingView(sort: SortDescriptor(\Destination.name), searchString: "")
+    DestinationAllListingView(sort: SortDescriptor(\Destination.name), searchString: "")
 }

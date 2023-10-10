@@ -22,23 +22,21 @@ struct EditDestinationView: View {
             
             Section("Priority") {
                 Picker("Priority", selection: $destination.priority) {
-                    Text("Meh").tag(1)
-                    Text("Maybe").tag(2)
-                    Text("Must").tag(3)
+                    Text("Low").tag(1)
+                    Text("Medium").tag(2)
+                    Text("High").tag(3)
                 }
                 .pickerStyle(.segmented)
             }
             
             Section("Landmarks") {
-                ForEach(destination.landmarks) { landmark in
-                    Text(landmark.name)
-                }
+                LandmarksView(destination: destination)
+            }
+            
+            HStack {
+                TextField("Add a new landmark in \(destination.name)", text: $newLandmarkName).autocorrectionDisabled()
                 
-                HStack {
-                    TextField("Add a new landmark in \(destination.name)", text: $newLandmarkName)
-                    
-                    Button("Add", action: addLandmark)
-                }
+                Button("Add", action: addLandmark)
             }
         }
         .navigationTitle("Edit Destination")

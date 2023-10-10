@@ -20,24 +20,52 @@ struct ContentView: View {
     // text to show objects that match it
     @State private var searchText = ""
     
+    // filter by pending
+    @State private var isFuture = false
+    
     var body: some View {
         NavigationStack(path: $path) {
-            DestinationListingView(sort: sortOrder, searchString: searchText)
-                .navigationTitle("iTour")
-                .navigationDestination(for: Destination.self, destination: EditDestinationView.init)
-                .searchable(text: $searchText)
-                .toolbar {
-                    Button("Add destination", systemImage: "plus", action: addDestination)
-                    
-                    Menu("Sort", systemImage: "arrow.up.arrow.down") {
-                        Picker("Sort", selection: $sortOrder) {
-                            Text("Name").tag(SortDescriptor(\Destination.name))
-                            Text("Date").tag(SortDescriptor(\Destination.date))
-                            Text("Priority").tag(SortDescriptor(\Destination.priority, order: .reverse))
+            if isFuture {
+                DestinationPendingView(sort: sortOrder, searchString: searchText)
+                    .navigationTitle("iTour")
+                    .navigationDestination(for: Destination.self, destination: EditDestinationView.init)
+                    .searchable(text: $searchText).autocorrectionDisabled()
+                    .toolbar {
+                        Toggle("⏳", isOn: $isFuture)
+                            .toggleStyle(SwitchToggleStyle(tint: .green))
+                        
+                        Button("Add destination", systemImage: "plus", action: addDestination)
+                        
+                        Menu("Sort", systemImage: "arrow.up.arrow.down") {
+                            Picker("Sort", selection: $sortOrder) {
+                                Text("Name").tag(SortDescriptor(\Destination.name))
+                                Text("Date").tag(SortDescriptor(\Destination.date))
+                                Text("Priority").tag(SortDescriptor(\Destination.priority, order: .reverse))
+                            }
+                            .pickerStyle(.inline)
                         }
-                        .pickerStyle(.inline)
                     }
-                }
+            } else {
+                DestinationAllListingView(sort: sortOrder, searchString: searchText)
+                    .navigationTitle("iTour")
+                    .navigationDestination(for: Destination.self, destination: EditDestinationView.init)
+                    .searchable(text: $searchText).autocorrectionDisabled()
+                    .toolbar {
+                        Toggle("⏳", isOn: $isFuture)
+                            .toggleStyle(SwitchToggleStyle(tint: .green))
+                        
+                        Button("Add destination", systemImage: "plus", action: addDestination)
+                        
+                        Menu("Sort", systemImage: "arrow.up.arrow.down") {
+                            Picker("Sort", selection: $sortOrder) {
+                                Text("Name").tag(SortDescriptor(\Destination.name))
+                                Text("Date").tag(SortDescriptor(\Destination.date))
+                                Text("Priority").tag(SortDescriptor(\Destination.priority, order: .reverse))
+                            }
+                            .pickerStyle(.inline)
+                        }
+                    }                
+            }
         }
     }
     
