@@ -11,10 +11,9 @@ import SwiftData
 struct LandmarksView: View {
     @Bindable var destination: Destination
     @Environment(\.modelContext) var modelContext
-    @Query(sort: \Landmark.name) var landmarks: [Landmark]
     
     var body: some View {
-        ForEach(destination.landmarks) { landmark in
+        ForEach(destination.landmarks.sorted(by: { $0.name < $1.name })) { landmark in
             Text(landmark.name)
         }
         .onDelete(perform: { indexSet in
@@ -23,7 +22,12 @@ struct LandmarksView: View {
     }
     
     func deleteLandmarks(_ indexSet: IndexSet) {
-        destination.landmarks.remove(atOffsets: indexSet)
+        let sortedArray = destination.landmarks.sorted(by: { $0.name < $1.name })
+        for index in indexSet {
+            if let landmarkIndex = destination.landmarks.firstIndex(where: { $0.id == sortedArray[index].id }) {
+                destination.landmarks.remove(at: landmarkIndex)
+            }
+        }
     }
 }
 
