@@ -9,8 +9,8 @@ This app features:
 <li>@Environment(\.modelContext)</li>
 <li>#Predicate</li>
 <li>Sorting methods, including SortDescriptor</li>
-<li>onDelete</li>
 <li>Custom init to overwrite @Query macro</li>
+<li>onDelete</li>
 <li>withAnimation</li>
 </ul>
 <br/>
