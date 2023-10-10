@@ -22,13 +22,4 @@ class Destination {
         self.date = date
         self.priority = priority
     }
-    
-    func printList() {
-        let sortedArray = landmarks.sorted {
-            $0.name < $1.name
-        }
-        for (index, name) in sortedArray.enumerated() {
-            print("item \(index): \(name.name)")
-        }
-    }
 }

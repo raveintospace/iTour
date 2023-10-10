@@ -22,9 +22,9 @@ struct EditDestinationView: View {
             
             Section("Priority") {
                 Picker("Priority", selection: $destination.priority) {
-                    Text("Meh").tag(1)
-                    Text("Maybe").tag(2)
-                    Text("Must").tag(3)
+                    Text("Low").tag(1)
+                    Text("Medium").tag(2)
+                    Text("High").tag(3)
                 }
                 .pickerStyle(.segmented)
             }
@@ -50,7 +50,6 @@ struct EditDestinationView: View {
             let landmark = Landmark(name: newLandmarkName)
             destination.landmarks.append(landmark)
             newLandmarkName = ""
-            destination.printList()
         }
     }
 }

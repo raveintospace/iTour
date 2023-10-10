@@ -21,7 +21,7 @@ struct ContentView: View {
     @State private var searchText = ""
     
     // filter by pending
-    @State private var isFuture = true
+    @State private var isFuture = false
     
     var body: some View {
         NavigationStack(path: $path) {
